@@ -1,0 +1,34 @@
+<div class="posts">
+    <div class="col-lg-11">
+        <div class="row">
+            @foreach ($items as $item)
+                @php
+                    $name = $item['title'];
+                    $description = $item['description'];
+                    $thumb = $item['thumb'];
+                    $link = $item['link'];
+                    $pubDate = $item['pubDate'];
+                @endphp
+                <div class="col-lg-6">
+                    <div class="post_item post_v_small d-flex flex-column align-items-start justify-content-start">
+                        <div class="post_image">
+                            <img src="{{ $thumb }}" alt="{{ $name }}">
+                        </div>
+                        <div class="post_content">
+                            <div class="post_title"><a href="{{ $link }}">
+                                    {{ $name }}
+                                </a>
+                            </div>
+                            <div class="post_info d-flex flex-row align-items-center justify-content-start">
+                                <div class="post_date"><a href="{{ $link }}">{{ $pubDate }}</a></div>
+                            </div>
+                            <div class="post_text">
+                                <p>{!! $description !!}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</div>
